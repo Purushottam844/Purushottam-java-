@@ -1,0 +1,112 @@
+import java.util.Scanner;
+
+// Base class for Account
+class Account {
+    // Static variable to store the total balance of all accounts
+    static double totalBalance = 0;
+    
+    // Instance variable for the balance of an individual account
+    double balance;
+    
+    // Constructor to initialize the balance
+    public Account(double initialBalance) {
+        this.balance = initialBalance;
+        totalBalance += initialBalance; // Update the total balance
+    }
+
+    // Function to deposit money into the account
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            totalBalance += amount;
+            System.out.println("Deposited: " + amount);
+        } else {
+            System.out.println("Amount must be greater than zero!");
+        }
+    }
+
+    // Function to withdraw money from the account
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            totalBalance -= amount;
+            System.out.println("Withdrawn: " + amount);
+        } else {
+            System.out.println("Invalid withdrawal amount or insufficient funds!");
+        }
+    }
+    
+    // Function to display the current balance of the account
+    public void displayBalance() {
+        System.out.println("Current balance: " + balance);
+    }
+}
+
+// Derived class BankAccount which extends Account
+class BankAccount extends Account {
+
+    // Constructor calling the base class constructor
+    public BankAccount(double initialBalance) {
+        super(initialBalance);
+    }
+
+    // Function to display the total balance of all accounts
+    public static void displayTotalBalance() {
+        System.out.println("Total balance in the bank: " + totalBalance);
+    }
+}
+
+public class BankApp {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Create a new BankAccount object with an initial deposit
+        System.out.print("Enter initial balance for the account: ");
+        double initialBalance = scanner.nextDouble();
+        BankAccount account = new BankAccount(initialBalance);
+
+        // Show initial balance
+        account.displayBalance();
+
+        // Menu for user operations
+        while (true) {
+            System.out.println("\nChoose an option:");
+            System.out.println("1. Deposit");
+            System.out.println("2. Withdraw");
+            System.out.println("3. Display Balance");
+            System.out.println("4. Display Total Bank Balance");
+            System.out.println("5. Exit");
+
+            int choice = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter deposit amount: ");
+                    double depositAmount = scanner.nextDouble();
+                    account.deposit(depositAmount);
+                    break;
+
+                case 2:
+                    System.out.print("Enter withdrawal amount: ");
+                    double withdrawalAmount = scanner.nextDouble();
+                    account.withdraw(withdrawalAmount);
+                    break;
+
+                case 3:
+                    account.displayBalance();
+                    break;
+
+                case 4:
+                    BankAccount.displayTotalBalance();
+                    break;
+
+                case 5:
+                    System.out.println("Exiting the program...");
+                    scanner.close();
+                    return;
+
+                default:
+                    System.out.println("Invalid choice! Please try again.");
+            }
+        }
+    }
+}
