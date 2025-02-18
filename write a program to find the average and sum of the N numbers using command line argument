@@ -1,0 +1,28 @@
+public class SumAverage {
+    public static void main(String[] args) {
+        // Check if there are any numbers passed as arguments
+        if (args.length == 0) {
+            System.out.println("Please provide numbers as command-line arguments.");
+            return;
+        }
+
+        double sum = 0;
+        
+        // Loop through all arguments and sum them
+        for (String arg : args) {
+            try {
+                sum += Double.parseDouble(arg); // Convert argument to double and add to sum
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid number: " + arg);
+                return;
+            }
+        }
+        
+        // Calculate the average
+        double average = sum / args.length;
+
+        // Print the results
+        System.out.println("Sum of the numbers: " + sum);
+        System.out.println("Average of the numbers: " + average);
+    }
+}
