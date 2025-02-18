@@ -1,0 +1,32 @@
+public class TypeCastingDemo {
+    public static void main(String[] args) {
+        
+        // Implicit Type Casting (Widening)
+        int intValue = 100;
+        double doubleValue = intValue;  // Automatically converts int to double
+        System.out.println("Implicit Type Casting:");
+        System.out.println("int value: " + intValue);
+        System.out.println("Converted to double: " + doubleValue);
+        
+        // Explicit Type Casting (Narrowing)
+        double doubleValue2 = 99.99;
+        int intValue2 = (int) doubleValue2;  // Manually converting double to int
+        System.out.println("\nExplicit Type Casting:");
+        System.out.println("double value: " + doubleValue2);
+        System.out.println("Converted to int: " + intValue2);
+        
+        // Example of converting a char to an int
+        char charValue = 'A';
+        int asciiValue = (int) charValue;  // Implicitly converts char to int
+        System.out.println("\nChar to Int Casting:");
+        System.out.println("char value: " + charValue);
+        System.out.println("ASCII value: " + asciiValue);
+        
+        // Example of converting a float to a long
+        float floatValue = 10.5f;
+        long longValue = (long) floatValue;  // Explicit casting from float to long
+        System.out.println("\nFloat to Long Casting:");
+        System.out.println("float value: " + floatValue);
+        System.out.println("Converted to long: " + longValue);
+    }
+}
