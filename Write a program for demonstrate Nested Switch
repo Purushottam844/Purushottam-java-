@@ -1,0 +1,86 @@
+import java.util.Scanner;
+
+public class NestedSwitchDemo {
+    public static void main(String[] args) {
+        // Create a scanner object to take input from the user
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask the user to input a day of the week (1-7)
+        System.out.print("Enter a day of the week (1 to 7, where 1=Sunday, 7=Saturday): ");
+        int day = scanner.nextInt();
+
+        // Outer switch to determine the day
+        switch (day) {
+            case 1:
+                System.out.println("Sunday selected.");
+                System.out.print("Enter meal choice (1 for Breakfast, 2 for Lunch, 3 for Dinner): ");
+                int mealChoice1 = scanner.nextInt();
+
+                // Nested switch for meal choice
+                switch (mealChoice1) {
+                    case 1:
+                        System.out.println("Breakfast: Pancakes and Coffee");
+                        break;
+                    case 2:
+                        System.out.println("Lunch: Sandwich and Juice");
+                        break;
+                    case 3:
+                        System.out.println("Dinner: Pizza and Salad");
+                        break;
+                    default:
+                        System.out.println("Invalid meal choice.");
+                }
+                break;
+
+            case 2:
+                System.out.println("Monday selected.");
+                System.out.print("Enter meal choice (1 for Breakfast, 2 for Lunch, 3 for Dinner): ");
+                int mealChoice2 = scanner.nextInt();
+
+                // Nested switch for meal choice
+                switch (mealChoice2) {
+                    case 1:
+                        System.out.println("Breakfast: Cereal and Milk");
+                        break;
+                    case 2:
+                        System.out.println("Lunch: Pasta and Water");
+                        break;
+                    case 3:
+                        System.out.println("Dinner: Steak and Mashed Potatoes");
+                        break;
+                    default:
+                        System.out.println("Invalid meal choice.");
+                }
+                break;
+
+            // Add cases for other days of the week (3 to 7)
+
+            case 7:
+                System.out.println("Saturday selected.");
+                System.out.print("Enter meal choice (1 for Breakfast, 2 for Lunch, 3 for Dinner): ");
+                int mealChoice7 = scanner.nextInt();
+
+                // Nested switch for meal choice
+                switch (mealChoice7) {
+                    case 1:
+                        System.out.println("Breakfast: Bagels and Coffee");
+                        break;
+                    case 2:
+                        System.out.println("Lunch: Chicken Salad");
+                        break;
+                    case 3:
+                        System.out.println("Dinner: Sushi and Sake");
+                        break;
+                    default:
+                        System.out.println("Invalid meal choice.");
+                }
+                break;
+
+            default:
+                System.out.println("Invalid day of the week.");
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}
